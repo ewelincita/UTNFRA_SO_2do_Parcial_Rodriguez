@@ -1,0 +1,310 @@
+echo "export HISTSIZE=-1
+export PROMPT_COMMAND="history -a; history -n""
+sudo apt install git
+sudo apt update
+git clone https://github.com/ewelincita/UTNFRA_SO_2do_Parcial_Rodriguez.git
+git clone https://github.com/upszot/UTN-FRA_SO_Examenes.git
+./UTN-FRA_SO_Examenes/202406/script_Precondicion.sh
+source ~/.bashrc
+ls
+sudo cp -r RTA_Examen_20241109 UTNFRA_SO_2do_Parcial_Rodriguez
+cd RTA_Examen_20241111/
+ls
+cd
+ls
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+ls
+cd 
+cd UTN-FRA_SO_Examenes/
+ls
+cd
+sudo cp -r UTN-FRA_SO_Examenes/202406  UTNFRA_SO_2do_Parcial_Rodriguez/
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+ls
+git config --global user.name "ewelincita"
+git config --global user.email "evelinmilirodriguez@gmail.com"
+git add . 
+git status
+git commit -m "ADD: preparando el entorno" 
+git push origin main
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+# Add the repository to Apt sources:
+echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo docker run hello-world
+vagrant halt
+Rodriguez halt
+ls
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+ls
+ansible --version
+sudo fdisk -l
+sudo fdisk /dev/sdc
+sudo pvs
+sudopvs
+sudo pvcreate /dev/sdc1
+sudo pvcreate vg_datos /dev/sdc1
+sudo vgcreate vg_datos /dev/sdc1 
+sudo vgs 
+sudo vgextend vg_datos /dev/sdc2
+sudo vgs
+sudo pvs
+sudo fdisk /dev/sdd1
+sudo fdisk /dev/sdc
+sudo pvcreate vg_datos /dev/sdc2
+sudo vgs
+sudo vgextend vg_datos /dev/sdc2 
+sudo vgs
+sudo pvs
+sudo vgs
+sudo fdisk -l
+sudo fdisk /dev/sdd
+sudo pvcreate /dev/sdd1
+sudo vgcreate vg_temp /dev/sdd1 
+sudo pvs
+sudo vgs
+sudo lvcreate -L +1.7G vg_datos -n lv_workareas
+sudo lvcreate -L +516M vg_datos -n lv_swap
+sudo vgs 
+sudo pvs
+sudo lvcreate -L +516M vg_temp -n lv_swap
+sudo vgs 
+sudo lvcreate -L +12M vg_datos -n lv_docker
+sudo vgs
+sudo lvs
+sudo systemctl restart docker 
+sudo systemctl status docker 
+sudo fdisk -l
+cd /var/lib/docker
+sudo cd /var/lib/docker
+sudo mkfs.ext4 /dev/mapper/vg_datos-lv_docker
+cd - 
+cd /
+ls
+mkdir work 
+sudp mkdir work 
+sudo mkdir work 
+cd /
+ls
+cd
+sudo mkfs.ext4 /dev/mapper/vg_datos-lv_workareas
+sudo mkswap /dev/mapper/vg_temp-lv_swap
+sudo mount /dev/mapper/vg_datos-lv_docker /var/lib/docker/
+sudo mount /dev/mapper/vg_datos-lv_workareas /work/
+sudo swapon /dev/mapper/vg_temp-lv_swap
+df -h
+free -h
+cd
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+ls
+cd RTA_Examen_20241111/
+ls
+sudo vim Punto_A.sh
+cd
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+git status
+git add .
+git status
+git commit -m "ADD: realice el punto 1"
+git push origin main
+cd
+cd UTN-FRA_SO_Examenes/
+ls
+cd
+ls
+UTNFRA_SO_2do_Parcial_Rodriguez/
+ls
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+ls
+cd 202406/bash_script/
+cat Lista_Usuarios.txt 
+cd /usr/local/bin
+sudo vim Rodriguez_AltaUser-Groups.sh 
+ls
+sudo vim Rodriguez_AltaUser-Groups.sh 
+chmod+x
+chmod +x 
+/usr/local/bin/Rodriguez_AltaUser-Groups.sh
+sudo chmod +x /usr/local/bin/Rodriguez_AltaUser-Groups.sh
+/usr/local/bin/Rodriguez_AltaUser-Groups.sh Rodriguez /home/Rodriguez/UTNFRA_SO_2do_Parcial_Rodriguez/202406/bash_script/Lista_Usuarios.txt
+sudo cat etc/shadow 
+sudo cat /etc/shadow 
+sudo grep Prog1 etc/shadow | awk -f ':' '{print$2}'
+sudo grep Prog1 /etc/shadow | awk -f ':' '{print$2}'
+sudo grep Prog1 /etc/shadow | awk -f':' '{print$2}'
+sudo grep Prog1 /etc/shadow | awk -f ':''{print$2}'
+cd
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+docker ps
+sudo docker ps
+cd docker
+ls
+cd 202406
+cd docker
+ls
+sudo vim index.html 
+docker run -d -p 8080:80 -v "$PWD":/usr/share/nginx/html nginx
+sudo docker run -d -p 8080:80 -v "$PWD":/usr/share/nginx/html nginx
+sudo docker ps
+sudo docker images 
+sudo docker pull nginx
+df -h
+sudo rm -rf /var/lib/docker/tmp/*
+sudo docker run -d -p 8080:80 -v "$PWD":/usr/share/nginx/html nginx
+sudo systemctl restart docker
+sudo systemctl status docker
+df -h /var/lib/docker
+sudo vgs
+sudo lvextend -L +50M /dev/mapper/vg_datos-lv_docker
+df -h 
+df -h /var/lib/docker
+sudo resize2fs /dev/mapper/vg_datos-lv_docker
+df -h /var/lib/docker
+sudo systemctl restart docker
+sudo docker run -d -p 8080:80 -v "$PWD":/usr/share/nginx/html nginx
+sudo lvextend -L +50M /dev/mapper/vg_datos-lv_docker
+sudo resize2fs /dev/mapper/vg_datos-lv_docker
+df -h /var/lib/docker
+sudo docker run -d -p 8080:80 -v "$PWD":/usr/share/nginx/html nginx
+sudo lvextend -L +50M /dev/mapper/vg_datos-lv_docker
+sudo resize2fs /dev/mapper/vg_datos-lv_docker
+df -h /var/lib/docker
+sudo docker run -d -p 8080:80 -v "$PWD":/usr/share/nginx/html nginx
+sudo lvextend -l +100%FREE /dev/mapper/vg_datos-lv_docker
+sudo resize2fs /dev/mapper/vg_datos-lv_docker
+df -h /var/lib/docker
+sudo docker run -d -p 8080:80 -v "$PWD":/usr/share/nginx/html nginx
+docker ps
+sudo docker ps
+sudo ufw status
+sudo ufw allow 8080
+sudo docker exec -it <CONTAINER_ID> ls /usr/share/nginx/html
+sudo docker ps
+cat /proc/cpuinfo
+sudo vim index.html 
+docker ps
+sudo docker ps
+sudo vim index.html 
+cat index.html
+cat docker-compose.yml
+sudo cat docker-compose.yml
+vim index.html
+cat docker-compose.yml
+cd
+cd UTN-FRA_SO_Examenes/
+LS
+ls
+cd 202406
+cd UTNFRA_SO_2do_Parcial_Rodriguez
+CD
+cd
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+cd
+ls
+cd UTN-FRA_SO_Examenes/
+cd 202406
+cat docker-compose.yml 
+cd
+UTNFRA_SO_2do_Parcial_Rodriguez/
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+cd 202406
+ls
+cd docker
+ls
+vim dockerfile
+Sudo docker exec -it (la id del contenedor) curl http://localhost
+sudo docker ps
+Sudo docker exec -it (adbd482bd80e ) curl
+Sudo docker exec -it adbd482bd80e curl
+Sudo docker exec -it adbd482bd80e curl http://localhost
+sudo docker exec -it adbd482bd80e curl http://localhost
+docker stop adbd482bd80e
+sudo docker stop adbd482bd80e
+sudo docker run -d -p 80:80 -v "$PWD":/usr/share/nginx/html nginx
+sudo docker ps
+vim run.sh
+sudo vim run.sh 
+docker stop adbd482bd80e
+sudo docker stop f2af56be53aa
+sudo docker ps
+sudo chmod +x run.sh
+./run.sh
+git status
+git add .
+git status
+git commit -m "ADD: realice el punto 3"
+git push origin main
+ls
+cd
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+ls
+cd RTA_Examen_20241111/
+sudo vim Punto_B.sh 
+git status
+git add .
+git status
+git commit -m "ADD: realice el punto 2"
+git push origin main
+sudo vim Punto_c.sh 
+git status
+git commit -m "ADD: realice el punto 3"
+git add .
+git status
+git commit -m "ADD: realice el punto 3"
+git push origin main
+cd
+11
+cd . .
+cd ..
+11
+ll
+cd ansiable
+cd
+ll
+cd Path-repo
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+cd 202406
+ll
+cd ansiable
+ll
+cd 
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+ls
+cd 202406
+ll
+cd ansible
+cd roles
+ll
+cd multipruebas
+cd multi_pruebas
+cat main.yml
+cd
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+cd 202406
+cd ansible
+cat main.yml
+vim main.yml
+cd
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+ls -la
+cd
+ls -la
+cd
+ls
+git add bash_history.txt
+ls -la
+cp sudo cp $HOME/.bash_history UTNFRA_SO_2do_Parcial_Rodriguez/
+sudo cp $HOME/.bash_history UTNFRA_SO_2do_Parcial_Rodriguez/
+cd UTNFRA_SO_2do_Parcial_Rodriguez/
+ls -la
